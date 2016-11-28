@@ -1,0 +1,29 @@
+@model MVCLibrary.Models.Book
+@{ ViewBag.Title = "Add Book"; }
+
+<h2>@ViewData["Title"]</h2>
+
+<form asp-controller="Library" asp-action="AddBook" method="post" class="form-horizontal" role="form">
+	<div class="form-horizontal">
+		<div asp-validation-summary="All" class="text-danger"></div>
+		<div class="form-group">
+			<label asp-for="Title" class="col-md-2 control-label"></label>
+			<div class="col-md-10">
+				<input asp-for="Title" class="form-control" />
+				<span asp-validation-for="Title" class="text-danger"></span>
+			</div>
+		</div>
+		<div class="form-group">
+			<label asp-for="@Model.Author" class="col-md-2 control-label"></label>
+			<div class="col-md-10">
+				<input asp-for="Author" class="form-control" />
+				<span asp-validation-for="Author" class="text-danger"></span>
+			</div>
+		</div>
+		<div class="form-group">
+			<div class="col-md-offset-2 col-md-10">
+				<input type="submit" value="Create" class="btn btn-default" />
+			</div>
+		</div>
+	</div>
+</form>
