@@ -1,7 +1,5 @@
 @model MVCLibrary.Models.Library 
-@{
-	ViewBag.Title = Model.Name;
-}
+@{ ViewBag.Title = Model.Name; }
 
 <h2>@ViewBag.Title</h2>
 <h5>@Model.Address</h5>
@@ -22,6 +20,7 @@
 		<td>@book.Author</td>
 		<td>
 			<a asp-controller="Library" asp-action="BookDetails" asp-route-libraryId="@Model.Id" asp-route-bookId="@book.Id">Details</a>
+			<a asp-controller="Library" asp-action="RemoveBook" asp-route-libraryId="@Model.Id" asp-route-bookId="@book.Id">Trash</a>
 		</td>
 	</tr>
 	}

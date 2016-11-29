@@ -53,13 +53,21 @@ namespace MVCLibrary.Controllers
             book.LibraryId = libraryId;
             _db.Books.Add(book);
             _db.SaveChanges();
-            return RedirectToAction("Index");
+            return RedirectToAction("Details", new { @id = libraryId });
         }
 
         public IActionResult Details(int id)
         {
             var library = _db.Libraries.Include(x => x.Books).FirstOrDefault(x => x.Id == id);
             return View(library);
+        }
+
+        public IActionResult RemoveBook(int libraryId, int bookId)
+        {
+            var b = _db.Books.Find(bookId);
+            _db.Books.Remove(b);
+            _db.SaveChanges();
+            return RedirectToAction("Details", new { @id = libraryId });
         }
 
         private Library GetLibrary(int id)
