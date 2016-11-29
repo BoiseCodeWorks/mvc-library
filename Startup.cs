@@ -29,9 +29,12 @@ namespace MVCLibrary
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            var connection = @"Server=(localdb)\mssqllocaldb;Database=MVCLibrary;Trusted_Connection=True;";
-            services.AddDbContext<BloggingContext>(options => options.UseSqlServer(connection));
-
+            // var connection = @"Server=(localdb)\mssqllocaldb;Database=MVCLibrary;Trusted_Connection=True;";
+            // services.AddDbContext<BloggingContext>(options => options.UseSqlServer(connection));
+            services.AddDbContext<LibraryContext>(x =>
+            {
+                x.UseSqlite("Filename=./MVCLibrary.db");
+            });
             // Add framework services.
             services.AddMvc();
         }

@@ -1,0 +1,28 @@
+@model MVCLibrary.Models.Library 
+@{
+	ViewBag.Title = Model.Name;
+}
+
+<h2>@ViewBag.Title</h2>
+<h5>@Model.Address</h5>
+
+<h3>Total Books: @Model.Books.Count</h3>
+
+<a asp-controller="Library" asp-action="AddBook" asp-route-libraryId="@Model.Id">Add Book</a>
+
+<table class="table">
+	<tr>
+		<th>Title</th>
+		<th>Author</th>
+		<th>Actions</th>
+	</tr>
+	@foreach (var book in Model.Books){
+	<tr>
+		<td>@book.Title</td>
+		<td>@book.Author</td>
+		<td>
+			<a asp-controller="Library" asp-action="BookDetails" asp-route-libraryId="@Model.Id" asp-route-bookId="@book.Id">Details</a>
+		</td>
+	</tr>
+	}
+</table>

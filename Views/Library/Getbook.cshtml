@@ -1,0 +1,7 @@
+@model MVCLibrary.Models.Book
+@{ ViewBag.Title = Model.Title; }
+
+<a asp-controller="Library" asp-action="Index">Back</a>
+
+<h2>@ViewData["Title"]</h2>
+<h5>@Model.Author</h5>

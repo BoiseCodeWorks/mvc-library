@@ -7,7 +7,6 @@
 	"args": [],
 	"options": {
 		"env": {
-			"Hosting environment": "Development",
 			"ASPNETCORE_ENVIRONMENT": "Development"
 		}
 	},
